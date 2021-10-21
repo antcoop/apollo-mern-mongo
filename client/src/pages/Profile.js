@@ -46,11 +46,7 @@ const Profile = () => {
     if (usersLoading) return null;
     // Only renders users who's profile we're not currently viewing
     const notMeUsers = users.filter(o => o._id !== user._id);
-    return (
-      <div className="col-12 col-md-10 mb-5">
-        <UserList users={notMeUsers} title="User List" />
-      </div>
-    );
+    return <UserList users={notMeUsers} title="User List" />;
   };
 
   const renderCurrentUserInfo = () => {
@@ -65,8 +61,8 @@ const Profile = () => {
 
   return (
     <div>
-      <div className="flex-row justify-center mb-3">
-        <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
+      <div>
+        <h2>
           Viewing {id ? `${user.username}'s` : 'your'} profile.
         </h2>
         {renderCurrentUserInfo()}
