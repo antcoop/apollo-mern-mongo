@@ -1,6 +1,6 @@
 // Node Modules
 import React from 'react';
-import { Redirect, useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 // Utilities
 import Auth from '../utils/auth';
@@ -26,7 +26,7 @@ const Profile = () => {
 
   // redirect to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data._id === id) {
-    return <Redirect to="/me" />;
+    return <Navigate to="/me" replace />;
   }
 
   if (loading) {
